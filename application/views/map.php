@@ -21,6 +21,5 @@
     }
 </script>
 
-<h1>petro</h1>
 <?=$footer?>
 

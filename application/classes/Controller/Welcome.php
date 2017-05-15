@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') OR die('No Direct Script Access');
  
-Class Controller_Welcome extends Controller_Template
+class Controller_Welcome extends Controller_Template
 {
     public $template = 'site';
  

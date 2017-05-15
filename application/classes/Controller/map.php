@@ -6,11 +6,14 @@ class Controller_Map extends Controller_Template {
     {
         $header = View::factory('header');
         $footer = View::factory('footer');
-
+        
         $petroglyphs = ORM::factory('Petroglyph')->find_all();
 
         $this->template->petroglyphs = $petroglyphs;
         $this->template->header = $header;
         $this->template->footer = $footer;
+        $header->logged_in = Auth::instance()->logged_in();
+        $header->username = Auth::instance()->get_user();
+        
     }
 }
