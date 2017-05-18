@@ -6,7 +6,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>We've got a message for you!</title>
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="<?=URL::base()?>assets/css/style.css" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -31,22 +31,23 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#signup">Sign up</a></li>
+                <li class="<?if ($menu=='home'):?>active<?endif?>"><a href="<?=URL::base()?>welcome">Home</a></li>
+                <li class="<?if ($menu=='map'):?>active<?endif?>"><a href="<?=URL::base()?>map">Map</a></li>
+                <li class="<?if ($menu=='petroglyph'):?>active<?endif?>"><a href="<?=URL::base()?>petroglyph">Petroglyphs</a></li>
+                <li class="<?if ($menu=='contact'):?>active<?endif?>"><a href="#contact">Contact</a></li>
+                <li class="<?if ($menu=='signup'):?>active<?endif?>"><a href="#signup">Sign up</a></li>
             </ul>
             <?if ($logged_in):?>
             <div class="collapse navbar-collapse navbar-right">
                 <p class="navbar-text">
                     Hello, <?=$username?>!
                 </p>
-                <form class="navbar-form navbar-right" action="logout" method="post">
+                <form class="navbar-form navbar-right" action="<?=URL::base()?>logout" method="post">
                     <button type="submit" class="btn btn-success">Sign out</button>
                 </form>
             </div>
             <?else:?>
-            <form class="navbar-form navbar-right" action="login" method="post">
+            <form class="navbar-form navbar-right" action="<?=URL::base()?>login" method="post">
                 <div class="form-group">
                     <input type="text" name="email" placeholder="Email" class="form-control">
                 </div>

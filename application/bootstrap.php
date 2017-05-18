@@ -103,7 +103,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  expose      set the X-Powered-By header                        FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/petrogis2/',
+	'base_url'   => '/petrogis2',
  	'index_file' => '',
 
 	));
@@ -146,6 +146,8 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+Route::set('cotroller_id', '<controller>/<id>',	array("id"=>'\d+'))
+	->defaults(array('action' => 'view'));
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
